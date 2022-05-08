@@ -16,6 +16,10 @@ export class ProductsService {
     private apiService: ApiService,
   ) { }
 
+  get columns(): Array<string> | undefined {
+    return this.originalProducts && Object.keys(this.originalProducts[0]);
+  }
+
   async init(): Promise<void> {
     this.initPromise = this.initPromise || this.retrieveProducts();
     await this.initPromise;
