@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app/app.component';
@@ -24,6 +25,7 @@ import { FilterSidebarComponent } from './components/filter-sidebar/filter-sideb
     HttpClientModule,
     MatPaginatorModule,
     MatTableModule,
+    MatTooltipModule,
     AppRoutingModule,
   ],
   providers: [],
