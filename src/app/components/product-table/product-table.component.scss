@@ -1,5 +1,11 @@
 @import '../../styles/variables';
 
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+} 
+
 .table-wrapper {
   overflow-x: auto;
 }
