@@ -1,0 +1,11 @@
+@import '../../styles/variables';
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.value {
+  display: inline-block;
+  max-width: $col-max-width;
+  padding: 0 1rem;
+}
