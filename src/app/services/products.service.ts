@@ -11,7 +11,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ProductsService {
 
-  private filterSubject: Subject<void> = new Subject();
+  private filterSubject: Subject<Array<Filter>> = new Subject();
   private filters: Array<Filter> = [];
   private initPromise: Promise<void> | undefined;
   private products: Array<Product> | undefined;
@@ -22,14 +22,18 @@ export class ProductsService {
 
   addFilter(filter: Filter): void {
     this.filters.push(filter);
-    this.filterSubject.next();
+    this.filterSubject.next(this.deepCopy(this.filters));
   }
 
   get columns(): Array<string> | undefined {
     return this.products && Object.keys(this.products[0]);
   }
 
-  get filterChange(): Observable<void> {
+  private deepCopy<T>(data: T): T {
+    return JSON.parse(JSON.stringify(data));
+  }
+
+  get filterChange(): Observable<Array<Filter>> {
     return this.filterSubject.asObservable();
   }
 
@@ -107,14 +111,14 @@ export class ProductsService {
       return;
     }
 
-    return this.products.filter((product: Product): boolean => {
+    return this.deepCopy(this.products).filter((product: Product): boolean => {
       return this.filter(product);
     });
   }
 
   removeFilter(index: number): void {
     this.filters.splice(index, 1);
-    this.filterSubject.next();
+    this.filterSubject.next(this.deepCopy(this.filters));
   }
 
   private async retrieveProducts(): Promise<void> {

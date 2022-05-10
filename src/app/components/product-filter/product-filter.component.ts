@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
+import { Filter, FilterOperator } from '../../helpers/filters';
 
 @Component({
   selector: 'tft-product-filter',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductFilterComponent implements OnInit {
 
+  @Input() filter!: Filter;
+  @Output() remove: EventEmitter<void> = new EventEmitter();
+
+  FilterOperator: typeof FilterOperator = FilterOperator;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  removeFilter(): void {
+    this.remove.emit();
+  }
 }
