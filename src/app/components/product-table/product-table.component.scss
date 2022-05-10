@@ -1,11 +1,62 @@
 @import '../../styles/variables';
 
+$table-scroll-padding: 1.25rem;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.headline {
+  padding: 1rem;
+  text-align: center;
+}
+
+.headline,
+.paginator {
+  flex-shrink: 0;
+}
+
+.table-shadow {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+
+  &:before,
+  &:after {
+    bottom: $table-scroll-padding;
+    content: '';
+    display: inline-block;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 2rem;
+  }
+
+  &:before {
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    left: 0;
+  }
+
+  &:after {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    right: 0;
+  }
+}
+
 .table-wrapper {
   overflow-x: auto;
+  padding-bottom: $table-scroll-padding;
 }
 
 .value {
   display: inline-block;
   max-width: $col-max-width;
   padding: 0 1rem;
+}
+
+.empty-message {
+  line-height: 3rem;
+  padding-left: 2rem;
 }

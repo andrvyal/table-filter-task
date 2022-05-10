@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.fixed {
+  border-bottom: $default-border;
+  flex-shrink: 0;
+  padding: 1rem;
+}
+
+.stretch {
+  flex-grow: 1;
+  height: 0;
+  overflow-y: auto;
+  padding: 1rem;
+}

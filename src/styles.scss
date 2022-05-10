@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 @import './app/styles/variables';
+@import './app/styles/global';
 
 .#{$app-prefix} {
   @import './app/styles/helpers';

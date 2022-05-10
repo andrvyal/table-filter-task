@@ -1,4 +1,6 @@
-<div class="mat-elevation-z8">
+<h1 class="headline mat-headline">Products</h1>
+
+<div class="table-shadow">
   <div class="table-wrapper">
     <table
       mat-table
@@ -27,7 +29,11 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
-  </div>
 
-  <mat-paginator [pageSize]="pageSize" aria-label="Select page of users"></mat-paginator>
+    <div *ngIf="loaded && !dataSource.data?.length" class="empty-message">
+      No data found
+    </div>
+  </div>
 </div>
+
+<mat-paginator class="paginator" [pageSize]="pageSize" aria-label="Select page of users"></mat-paginator>
