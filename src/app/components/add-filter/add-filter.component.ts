@@ -29,6 +29,16 @@ export class AddFilterComponent implements OnInit {
     this.reset();
   }
 
+  addFilter(): void {
+    this.productsService.addFilter({
+      column: this.column!,
+      operator: this.operator,
+      value: this.value,
+    });
+
+    this.reset();
+  }
+
   private reset(): void {
     this.column = this.columns?.[0];
     this.operator = FilterOperator.EQUAL;

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/helpers/products';
 
 import { ProductsService } from '../../services/products.service';
 
@@ -15,7 +14,5 @@ export class AppComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     await this.productsService.init();
-    const products: Array<Product> = this.productsService.products;
-    console.log('products', products)
   }
 }

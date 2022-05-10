@@ -1,5 +1,5 @@
 export interface Product {
-  [field: string]: string;
+  [field: string]: string | number;
 }
 
 export interface ProductsResponse {

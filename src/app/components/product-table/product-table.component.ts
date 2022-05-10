@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -6,19 +6,21 @@ import { MatSort } from '@angular/material/sort';
 import { environment } from '../../../environments/environment';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../helpers/products';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'tft-product-table',
   templateUrl: './product-table.component.html',
   styleUrls: ['./product-table.component.scss']
 })
-export class ProductTableComponent implements OnInit {
+export class ProductTableComponent implements OnInit, OnDestroy {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   displayedColumns: Array<string> | undefined;
   dataSource!: MatTableDataSource<Product>;
+  filterChangeSubscription: Subscription | undefined;
   pageSize: number = environment.pageSize;
 
   constructor(
@@ -28,10 +30,21 @@ export class ProductTableComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     await this.productsService.init();
 
-    this.dataSource = new MatTableDataSource(this.productsService.products);
+    this.displayedColumns = this.productsService.columns;
+
+    this.setData(this.productsService.filteredProducts);
+    this.filterChangeSubscription = this.productsService.filterChange.subscribe(() => {
+      this.setData(this.productsService.filteredProducts);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.filterChangeSubscription?.unsubscribe();
+  }
+
+  private setData(products: Array<Product> | undefined): void {
+    this.dataSource = new MatTableDataSource(products);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-
-    this.displayedColumns = this.productsService.columns;
   }
 }
