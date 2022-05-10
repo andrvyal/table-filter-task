@@ -21,6 +21,7 @@ export class ProductTableComponent implements OnInit, OnDestroy {
   displayedColumns: Array<string> | undefined;
   dataSource!: MatTableDataSource<Product>;
   filterChangeSubscription: Subscription | undefined;
+  loaded: boolean = false;
   pageSize: number = environment.pageSize;
 
   constructor(
@@ -29,6 +30,7 @@ export class ProductTableComponent implements OnInit, OnDestroy {
 
   async ngOnInit(): Promise<void> {
     await this.productsService.init();
+    this.loaded = true;
 
     this.displayedColumns = this.productsService.columns;
 
