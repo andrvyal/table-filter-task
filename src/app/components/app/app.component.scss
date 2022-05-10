@@ -1,8 +1,11 @@
+@import '../../styles/variables';
+
 .layout {
   display: flex;
 }
 
 .sidebar {
+  border-left: $default-border;
   flex-shrink: 0;
   width: 15rem;
 }

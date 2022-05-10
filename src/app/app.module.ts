@@ -2,7 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -12,6 +17,7 @@ import { AppComponent } from './components/app/app.component';
 import { ProductTableComponent } from './components/product-table/product-table.component';
 import { ProductFiltersComponent } from './components/product-filters/product-filters.component';
 import { FilterSidebarComponent } from './components/filter-sidebar/filter-sidebar.component';
+import { AddFilterComponent } from './components/add-filter/add-filter.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +25,18 @@ import { FilterSidebarComponent } from './components/filter-sidebar/filter-sideb
     ProductTableComponent,
     ProductFiltersComponent,
     FilterSidebarComponent,
+    AddFilterComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
     MatPaginatorModule,
+    MatSelectModule,
     MatSortModule,
     MatTableModule,
     MatTooltipModule,
