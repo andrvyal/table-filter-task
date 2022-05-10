@@ -8,11 +8,15 @@ import { ProductsService } from '../../services/products.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  loading: boolean = true;
+
   constructor(
     private productsService: ProductsService,
   ) {}
 
   async ngOnInit(): Promise<void> {
     await this.productsService.init();
+    this.loading = false;
   }
 }
