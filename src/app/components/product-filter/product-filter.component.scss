@@ -29,9 +29,8 @@ $operator-size: 2.5rem;
 }
 
 .filter-operator {
-  color: $color-primary;
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: bold;
   line-height: $operator-size;
   text-align: center;
   width: $operator-size;
@@ -46,4 +45,8 @@ $operator-size: 2.5rem;
 .filter-column {
   color: $text-color-secondary;
   text-align: right;
+}
+
+.highlight {
+  color: $color-primary;
 }
