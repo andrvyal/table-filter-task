@@ -1,0 +1,38 @@
+<mat-form-field appearance="fill" class="fill-width">
+  <mat-label>Column name</mat-label>
+  <mat-select [disabled]="!columns" [(ngModel)]="column">
+    <mat-option *ngFor="let option of columns" [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="fill-width">
+  <mat-label>Operator</mat-label>
+  <mat-select [disabled]="!columns" [(ngModel)]="operator">
+    <mat-option [value]="FilterOperator.EQUAL">equals (=)</mat-option>
+    <mat-option [value]="FilterOperator.NOT_EQUAL">does not equal (≠)</mat-option>
+    <mat-option [value]="FilterOperator.GREATER_OR_EQUAL">greater than or equal to (≥)</mat-option>
+    <mat-option [value]="FilterOperator.LESS_OR_EQUAL">less than or equal to (≤)</mat-option>
+    <mat-option [value]="FilterOperator.CONTAIN">contains (⊂)</mat-option>
+    <mat-option [value]="FilterOperator.NOT_CONTAIN">does not contain (⊄)</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill" class="fill-width">
+  <mat-label>Value</mat-label>
+  <input matInput [disabled]="!columns" [(ngModel)]="value">
+</mat-form-field>
+
+<div class="text-center">
+  <button
+    mat-fab
+    color="primary"
+    title="Apply Filter"
+    aria-label="Apply Filter button"
+    [disabled]="!columns"
+    (click)="addFilter()"
+  >
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

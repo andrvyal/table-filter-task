@@ -1,0 +1,29 @@
+<div class="filter">
+  <div class="filter-column tft-truncate">
+    {{filter.column}}
+  </div>
+
+  <div [ngSwitch]="filter.operator" class="filter-operator highlight">
+    <span *ngSwitchCase="FilterOperator.EQUAL">=</span>
+    <span *ngSwitchCase="FilterOperator.NOT_EQUAL">≠</span>
+    <span *ngSwitchCase="FilterOperator.GREATER_OR_EQUAL">≥</span>
+    <span *ngSwitchCase="FilterOperator.LESS_OR_EQUAL">≤</span>
+    <span *ngSwitchCase="FilterOperator.CONTAIN">⊂</span>
+    <span *ngSwitchCase="FilterOperator.NOT_CONTAIN">⊄</span>
+  </div>
+
+  <div class="filter-value tft-truncate">
+    <span class="highlight">"</span>{{filter.value}}<span class="highlight">"</span>
+  </div>
+
+  <button
+    mat-flat-button
+    color="warn"
+    class="close-button"
+    title="Remove Filter"
+    aria-label="Remove Filter button"
+    (click)="removeFilter()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+
+$layout-margin: .5rem;
+
+.progress {
+  position: absolute;
+  top: 0;
+}
+
+.layout {
+  display: flex;
+  margin: $layout-margin;
+  min-height: calc(100vh - ($layout-margin * 2));
+}
+
+.sidebar {
+  border-left: $default-border;
+  flex-shrink: 0;
+  width: 18rem;
+}
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  min-width: 0;
+}

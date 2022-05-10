@@ -1,0 +1,6 @@
+<tft-product-filter
+  *ngFor="let filter of filters; let index = index"
+  class="filter"
+  [filter]="filter"
+  (remove)="removeFilter(index)"
+></tft-product-filter>
