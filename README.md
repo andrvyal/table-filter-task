@@ -3,7 +3,9 @@
 ## Notes
 
 Developer: Andrei Vial
+
 Project: Angular table view for a dynamic data set that allows for the use of user-defined filters.
+
 [Screenshot](https://i.snipboard.io/yDqfeG.jpg) [33 seconds demo](https://monosnap.com/file/Jl7Bx1DKsm9ruLznOq80pgo41TKV4O)
 
 Sample data file is stored in `src/assets/table_data.json`. App doesn't rely on the product structure - it could contain any fields.
