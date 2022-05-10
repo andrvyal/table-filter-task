@@ -40,8 +40,7 @@ export class AddFilterComponent implements OnInit {
   }
 
   private reset(): void {
-    this.column = this.columns?.[0];
-    this.operator = FilterOperator.EQUAL;
+    this.column = this.column || this.columns?.[0];
     this.value = '';
   }
 }
