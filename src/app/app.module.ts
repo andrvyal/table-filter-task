@@ -18,6 +18,7 @@ import { ProductTableComponent } from './components/product-table/product-table.
 import { ProductFiltersComponent } from './components/product-filters/product-filters.component';
 import { FilterSidebarComponent } from './components/filter-sidebar/filter-sidebar.component';
 import { AddFilterComponent } from './components/add-filter/add-filter.component';
+import { ProductFilterComponent } from './components/product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AddFilterComponent } from './components/add-filter/add-filter.component
     ProductFiltersComponent,
     FilterSidebarComponent,
     AddFilterComponent,
+    ProductFilterComponent,
   ],
   imports: [
     BrowserModule,

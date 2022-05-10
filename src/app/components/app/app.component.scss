@@ -2,12 +2,13 @@
 
 .layout {
   display: flex;
+  margin: .5rem;
 }
 
 .sidebar {
   border-left: $default-border;
   flex-shrink: 0;
-  width: 15rem;
+  width: 18rem;
 }
 
 .content {
