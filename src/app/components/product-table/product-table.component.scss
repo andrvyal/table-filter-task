@@ -13,7 +13,14 @@ $table-scroll-padding: 1.25rem;
   text-align: center;
 }
 
+.headline,
+.paginator {
+  flex-shrink: 0;
+}
+
 .table-shadow {
+  display: flex;
+  flex-grow: 1;
   position: relative;
 
   &:before,

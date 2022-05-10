@@ -1,8 +1,11 @@
 @import '../../styles/variables';
 
+$layout-margin: .5rem;
+
 .layout {
   display: flex;
-  margin: .5rem;
+  margin: $layout-margin;
+  min-height: calc(100vh - ($layout-margin * 2));
 }
 
 .sidebar {
